@@ -1,0 +1,9 @@
+<script type="text/javascript">
+	
+</script>
+<div id="puntos">
+<form method='POST'>{% csrf_token %}
+	{{forms.as_p}}
+<input type='submit' value='Guardar Cambios' onclick='cerrar()'>
+</form>
+</div>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/portadasIndex.css">
+<style type="text/css">
+	#leftt{
+		display: none;
+	}
+</style>
+<div id="publicaiones">
+{% for i in ps %}
+	<ul>
+		<li><label>Carrera:</label> {{i.Carrera}}</li>
+		<li><label>{{i.Titulo}}</label></li>
+		<li>{{i.publicacion}}</li>
+		<li> <img src="{{MEDIA_URL}}{{i.Portada}}"> </li>
+		<li><a href="/eliminarPortada/{{i.id}}/">Eliminar</a>
+			<a href="/EditarPortada/{{i.id}}/">Editar</a></li>
+		<li>Publicado el:{{i.Fercha_publicacion}}</li>
+	</ul>	
+{%  endfor %}
+</div>
+{% endblock %}

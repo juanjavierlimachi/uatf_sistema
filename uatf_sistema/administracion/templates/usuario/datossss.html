@@ -1,0 +1,21 @@
+
+<html>
+<head>
+	<table>.:Editar:.</table>
+	<script type="text/javascript">
+		function cargar(){
+			//var urls=url;
+			window.opener.top.location.reload();
+			//window.location="/privado/";
+		}
+
+	</script>
+</head>
+<body>
+<form action="" method="POST">{% csrf_token %}
+   <table>{{ user_form }}</table> 
+    <table>{{ perfil_form }}</table>
+    <input type="submit" value="Guardar cambios" onclick="cargar()"><br>
+</form>
+</body>
+</html>

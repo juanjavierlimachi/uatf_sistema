@@ -1,0 +1,16 @@
+<div id="roles">
+
+{% for carrera in carreras %}
+	{% for partido in partidos %}
+		{% for fechapartido in fechapartidos %}
+			{% if carrera.id == partido.Carrera_id and partido.Fecha_Partido_id == fechapartido.id %}
+				<li>{{partido.hora}}
+				{{partido.EquipoA}} *VS*
+				{{partido.EquipoB}}
+				{{fechapartido.lugar}}
+				{{fechapartido.fecha}}</li><br>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+<div>

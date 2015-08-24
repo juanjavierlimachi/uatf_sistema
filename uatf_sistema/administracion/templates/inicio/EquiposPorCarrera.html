@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+	{% block title %}.:Equipos:.{% endblock %}
+	{% block js %}
+<script type="text/javascript">
+	$('select').on('change',inicio);
+
+	function inicio(){
+		var id = $(this).val();
+		console.log(id); //aki vemos k el id se esta inprimiendo
+		$.ajax({
+			data:{'id':id},
+			url:'/EquiposPor/',
+			type: 'get',
+			success: function(data){
+				console.log(data);
+				var html=""
+				for(var i = 0; i<data.length; i++){
+					html += '<li>'+(i+1)+' .- '+data[i].fields.Nombre_equipo+'</li>';
+				}
+				$('#resultados').html(html);
+			}
+		});
+	}
+	$(document).ready(function(){
+		$('#partidos').hide();
+		$('#bt').click(function(){
+			$('#partidos').show(1000);
+		});
+	});
+
+	function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=600,height=300,scrollbars=NO top=150 left=420");
+                window.opener.document.reload();
+            }   
+</script>
+
+{% endblock %}
+{% block contenidos %}
+<style type="text/css">
+	#leftt{
+		display: none;
+	}
+	#equipos{
+		width: auto;height: 250px;margin: 10px;padding: 10px;
+	}
+	#equipos li{
+		width: 300px;height: 25px;list-style: none;float: left;margin-left: 15px;
+	}
+	#equipo{
+		width: auto;height:150px;margin: 10px;padding: 10px;margin-top: 10px;
+	}
+	#resultados li{
+		list-style: none;margin-left: 20px;
+	}
+	#diciplinas p{
+		text-align: center;
+	}
+	/*#diciplinas ul li{
+		width: 50%;height: auto;margin: auto;float: left;margin-left: 5px;margin-top: 5px;
+	}*/
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/diciplinas.css">
+<div id="diciplinas">
+	<p>Lista de Equipos Registrados</p>
+	{% for Equipo in Equipos %}
+	<ul> 
+		 <li> <a href="javascript:ventanaSecundaria('/update/{{Equipo.id}}/')">{{Equipo.Nombre_equipo}}</a></li>
+		  <li><a href="/delete/{{Equipo.id}}/">Eliminar</a>
+		  	<a href="javascript:ventanaSecundaria('/Puntos/{{Equipo.id}}/')">Puntos</a></li>
+		  
+	</ul>
+	{% endfor %} 
+</div><br><br><p></p>
+<hr>
+<div id='select'>
+	Ver Diciplinas por Campeonatos:<select id='care' class='initialized'><option>Elige un Campeonato</option>
+		{% for carrera in campeonato %}
+		<option value='{{carrera.id}}'>{{carrera.Nombre_campeonato}}</option>
+		{% endfor %}
+	</select>
+</div>
+{% endblock %}

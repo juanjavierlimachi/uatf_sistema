@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+	{% block title %}.:Puntajes:.{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<link rel="stylesheet" type="text/css" href="/static/css/registroPuntos.css">
+<div id="partidos">
+<form method='POST'>{% csrf_token %}
+	<p>Registrar Puntuacion</p>
+	{{formulario}}<br>
+	<input type='submit' value='registrar'>
+</form>
+</div>
+{% endblock %}

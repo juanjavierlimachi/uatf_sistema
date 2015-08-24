@@ -1,0 +1,15 @@
+ 
+<script type="text/javascript">
+	function cerrar(){
+		window.opener.document.location.reload(true);
+		
+	}
+	
+</script>
+<div id="partidos">
+	<p>Editar Equipo</p>
+<form method='POST'>{% csrf_token %}
+<table>{{forms}} </table><br>
+<input type='submit' value='Registrar' id='btn' onclick='cerrar()'>
+</form>
+</div>

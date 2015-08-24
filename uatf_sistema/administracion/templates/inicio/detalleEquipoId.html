@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/deDetale.css">
+<script type="text/javascript">
+function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=600,height=300,scrollbars=NO top=150 left=420");
+                window.opener.document.reload();
+            } 
+</script>
+<div id='registro'>
+<p>Detalle del equipo {{e.Nombre_equipo}}</p>
+<li><a href="/delete/{{e.id}}/">Eliminar Equipo</a></li>
+<li> <a href="javascript:ventanaSecundaria('/update/{{e.id}}/')">Nombre Equipo:{{e.Nombre_equipo}}</a></li>  <li>     Participa en : {{e.campeonato}}</li>
+<li>Juega la Diciplina: {{e.diciplina}}</li>
+		  <li>	<a href="javascript:ventanaSecundaria('/Puntos/{{e.id}}/')">Ver Puntos</a></li>  
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenidos %}
+<style type="text/css">
+#leftt{
+	display: none;
+}
+#lista{
+	width: 80%;margin: auto;
+	margin-top: 15px;
+}
+</style>
+	<div id="lista">
+		{% for carrera in carreras %}
+		<li>Nombre Carrera: </li> <a href="/detalles/{{carrera.id}}/"> {{carrera.Nombre_Carrera}}</a>
+		{% endfor %}
+	</div>
+{% endblock %}

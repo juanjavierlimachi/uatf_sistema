@@ -1,0 +1,44 @@
+<style type="text/css">
+#divContenido{
+	width: auto;height: auto;margin: auto;background: #87CEFA;
+	border-radius: 5px;
+}
+#divContenido p{text-align: center;}
+#divContenido li a{
+	text-decoration: none;text-align: center;padding: 5px;
+}
+#divContenido li{list-style: none;height: 15px;width: 85%;display: inline-block;
+	margin: auto;margin-top: 30px;}
+	#divContenido li a:hover{
+		color: orange;
+	}
+</style>
+	<div id="divContenido">
+		 <!-- <p>ROL DE PARTIDOS CAMPEONATOS INTER-CARRERA GESTION {% now "Y" %}</p>
+		<p>FECHA:{{ultimafecha.fecha}}</p>
+<p>LUGAR:{{ultimafecha.lugar}}</p><p>Nro:{{ultimafecha.id}}</p> -->
+			<!-- <table border='1' align='center'>
+			<tr><td>HORAS</td><td>EQUIPO</td><td>*VS*</td><td>EQUIPO</td>
+				<td>Categoria</td><td>Diciplina</td></tr>
+				{% for partido in partidos %}
+				<tr>
+					<td>{{partido.hora}}</td>
+					<td>{{partido.EquipoA}}</td><td>*vs*</td>
+					<td>{{partido.EquipoB}}</td>
+					<td>{{partido.Categoria}}</td>
+					<td>{{partido.diciplina}}</td>
+				</tr>
+				{% endfor %}
+			</table>  -->
+			{% if estado %}
+				<h4>No se registraron Partidos para este semana...!!!</h4>
+			{% endif %}
+	{% for item in partidos %}
+				<li><a href="/ultimosIntercarrera/{{item.Fecha_Partido_id}}/">Ver Rol Actual de Partidos</a></li>
+				<li><a href="/equiposCarreraInter/{{item.campeonato_id}}/diciplinasInter/{{item.diciplina_id}}/">Tabla de posiciones</a></li>
+				<li class="enlace">
+					<a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://localhost:8000/di/{{item.campeonato_id}}/ca/{{item.diciplina_id}}/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir en Facebook</a>
+				</li>
+	{% endfor %}
+	<p><a href="javascript:window.history.back();">Atras</a></p>
+	</div>

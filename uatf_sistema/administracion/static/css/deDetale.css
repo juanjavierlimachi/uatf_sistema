@@ -1,0 +1,15 @@
+#leftt{
+	display: none;
+}
+#registro{
+	width: 80%;height: auto;margin-top: 10px;border-radius: 7px;
+}
+#registro p{
+	text-align: center;
+}
+#registro li{
+	list-style: none;margin-left: 20px;
+}
+#registro li a:hover{
+	color: orange;
+}

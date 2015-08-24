@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block js %}
+<script type="text/javascript">
+	$('#btn').click(function(){
+		//alert('echo');
+	});
+</script>
+{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<style type="text/css">
+	#id_Categoria{
+		width: 60%;
+	}
+	#partidos table tr td ul li{
+		width: 30px;float: left;margin: auto;
+		list-style: none;margin-left: 35px;
+	}
+</style>
+<div id="partidos">
+	<p>Registre todos los partidos que se jugaran en la fecha registrada enterior-mente</p>
+<form method='POST'>{% csrf_token %}
+<table>{{formulario}} </table><br>
+<input type='submit' value='Registrar' id='btn'>
+</form>
+</div>
+{% endblock %}

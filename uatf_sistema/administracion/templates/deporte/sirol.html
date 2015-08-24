@@ -1,0 +1,66 @@
+{% extends 'deporte.html' %}
+{% block contends %}
+<style type="text/css">
+.col-lg-4{
+	display: none;
+}
+#rol .enlace{
+		background: royalblue;
+		color: white;text-align: center;
+	}
+#rol{
+	width: auto;height: auto;margin: 20px;padding: 5px;
+}
+	h4{
+		width: auto; height: auto;margin: auto;text-align: center;float: left;
+	}
+	#rol li{
+		width: 190px;float: left;text-align: center;list-style: none;
+		margin-left: 10px;background: #7FFFD4;border-radius: 2px;
+	}
+	#rol li a{
+		text-decoration: none;color: black;
+	}
+	#rol li a:hover{
+		text-decoration: none;
+		color: white;
+	}
+	#rol li:hover{
+		background: #FFA07A;
+	}
+</style>
+<script type="text/javascript">
+function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=500,height=300,scrollbars=NO top=150 left=450");
+            }
+</script>
+<head>
+<meta property="og:url" content="http://localhost:8000/di/5/ca/7/" />
+<meta property="og:title" content="Unidad de Deportes U.A.T.F" />
+<meta property="og:description" content="Ver Programacion de Partidos internos de nuestra universidad Autonoma Tomas Frias;)" />
+<meta property="og:image" content="/static/img/udd3.jpg" />
+<meta property="og:image" content="/static/img/bueno.png" />
+<meta property="og:image" content="/static/img/copa.jpg" />
+</head>
+<div id="rol">
+{% if estado %}
+<h4>No se registraron Partidos para este semana...!!!</h4>
+{% else %}
+<h4>haga click para ver el rol de pertidos </h4>
+{% endif %}
+{% for item in partidos %}
+<li><a href="/ultimos/{{item.Fecha_Partido_id}}/">Ver Rol Actual de Partidos</a></li>
+<li><a href="/equiposCarrera/{{item.campeonato_id}}/diciplinas/{{item.diciplina_id}}/">Tabla de posiciones</a></li>
+<li class="enlace">
+	<a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://localhost:8000/di/{{item.campeonato_id}}/ca/{{item.diciplina_id}}/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir en Facebook</a>
+</li>
+<!--<li class="enlace"><a href="javascript:ventanaSecundaria('http://www.facebook.com/sharer.php?u=https://localhost:8000/di/5/ca/7/&t=Unidad de Deportes U.A.T.F')">Compartir en facebook</a></li>
+
+<li><a name="fb_share" type="button" href="http://www.facebook.com/sharer.php">Share</a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
+</script></li> -->
+
+{% endfor %}
+</div>
+{% endblock %}
+<!--{{item.idFechaPartido_id}}-->

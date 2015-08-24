@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block contenidos %}
+<style type="text/css">
+	#dici{
+		width: 80%;height: auto;
+		margin: auto;
+		border: 1px solid black;
+	}
+	#dici ul{
+		width: 25%;
+		float: left;
+		margin-left: 10px;
+		border: 1px solid black;
+		height: 150px;
+		margin-top: 10px;
+	}
+	#dici ul li{
+		width: 150px;
+		height: auto;
+	}
+	#dici ul li a{
+		width: 100%;height: auto;
+	}
+	#dici p{
+		width: 150px;height: auto;margin: 1px solid black;
+		margin-left: 30px;
+	}
+</style>
+<div id="dici">
+{% for diciplina in diciplinas %}
+	<ul>
+		<li>{{diciplina.Nombre_diciplina}}</li>
+		{% for carrera in diciplina.carrera.all %}
+			<p>{{carrera.Nombre_Carrera}}</p>
+			<!-- <a href="/diciplina/{{diciplina.id}}/carrera/{{carrera.id}}/">Ver Rol</a> -->
+		{% endfor %}
+	</ul>
+	{% endfor %}
+	</div>
+{% endblock %}

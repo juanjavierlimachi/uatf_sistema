@@ -1,0 +1,16 @@
+<script type="text/javascript">
+function cerrar(){
+		window.opener.document.location.reload(true);
+		//bien();
+	}
+	/*function bien(){
+		window.close();
+	}*/
+</script>
+<div id="asignar">
+<form method='POST' >
+ {% csrf_token %}
+<table>{{forms}}</table>
+<input type='submit' value='Guardar' onclick='cerrar()'>
+</form>
+</div>

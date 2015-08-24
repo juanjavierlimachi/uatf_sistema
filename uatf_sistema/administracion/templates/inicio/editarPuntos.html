@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	/*function cerrar(){
+		window.opener.document.location.reload(true);
+		bien();
+	}
+	function bien(){
+		window.close();
+	}*/
+</script>
+<link rel="stylesheet" type="text/css" href="/static/css/registroPuntos.css">
+<style type="text/css">
+	#partidos form table ul{
+		margin-left: 0px;
+	}
+	#partidos form table ul li{
+		margin: 0px;
+	}
+	#pertidos form table label{
+		margin-right: 10px;width: 250px;display: inline-block;
+	}
+</style>
+<div id="partidos">
+<form method='POST'>{% csrf_token %}
+	<table>{{forms}}</table>
+<input type='submit' value='Guardar Cambios' onclick='cerrar()'>
+</form>
+</div>

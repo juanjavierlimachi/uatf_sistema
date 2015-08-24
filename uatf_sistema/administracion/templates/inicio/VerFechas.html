@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}.:Fechas Programacion:.{% endblock %}
+{% block contenidos %}
+<script type="text/javascript">
+function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=500,height=300,scrollbars=NO top=150 left=450");
+            }
+</script>
+<link rel="stylesheet" type="text/css" href="/static/css/diciplinas.css">
+<div id="diciplinas">
+	<p>Fechas de Programacion Partidos</p>
+{% for f in fechas %}
+	<ul>
+		<li><a href="#">{{f.fecha}}</a>
+			<a href="javascript:ventanaSecundaria('/editFecha/{{f.id}}/')">{{f.lugar}}</a></li>
+		<li><a href="/eliminarFechas/{{f.id}}/">Eliminar</a></li>
+	</ul>
+{% endfor %}
+</div>
+{% endblock %}

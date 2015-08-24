@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title%}{% endblock %}</title>
+        <link rel="shortcut icon" href="{{STATIC_URL}}img/logo.png" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet">
+       <!-- <link href="{{STATIC_URL}}css/dataTables.responsive.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}css/defilas.css" rel="stylesheet"> 
+ <script src="{{STATIC_URL}}js/jquery.datetimepicker.js"></script>
+<link href="{{STATIC_URL}}css/jquery.datetimepicker.css " rel="stylesheet">-->
+<script src="{{STATIC_URL}}js/jquery-2.1.1.min.js"></script>
+<script src="{{STATIC_URL}}js/jquery.datetimepicker.js"></script>
+        <link href="{{STATIC_URL}}css/materialize.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/base.css" /> 
+        <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+        <script type="text/javascript">window.__admin_utc_offset__ = "0";</script>
+        <script type="text/javascript" src="/admin/jsi18n/"></script>
+        <meta charset='utf-8' name="robots" content="NONE,NOARCHIVE" />
+
+        <script src="{{STATIC_URL}}js/materialize.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/deIndex.css">
+        <script type="text/javascript" src='{{STATIC_URL}}js/validar.js'></script>
+        <script src="{{STATIC_URL}}js/ScriptBusqueda.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('div.acordion> div').hide(); /*aki estamos ocultando los div k contiene el texto*/
+        $('div.acordion> li').click(function(){
+            $(this).next().slideToggle(90) /*slideToggle este metodo hace el efecto cuando haces click en un tienpo de 90 mls*/
+        })
+    })
+    </script>
+    <script type="text/javascript">
+            function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=500,height=300,scrollbars=NO top=150 left=550");
+            }
+            function diciplina(){
+                $.ajax({
+                     type:'GET',
+                      url:'/VerDiciplinas/',
+                     data: {},
+                      success: function(resp){
+                        console.log(resp);
+                        $('#resultados').html(resp);
+                      }
+                 });
+            }
+        </script> 
+    </head>
+    <body>   
+        <header>
+            <nav id="header" class="nav-top">
+           <div class="btn-group" id="leftt">
+         <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+             {% block usuario %}
+             <!-- <a href="/datos/{{contexto.id}}">hola:{{contexto}}</a> -->
+            {% endblock %}    
+     </button>
+
+     </div>
+                <!--http://entredesarrolladores.com/6649/c%C3%B3mo-reutilizar-plantilla-html-en-django
+                 <a href="/datos/" id="left" class="btn-group">
+                    <div>
+     <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+     Denuncias <span class="caret"></span>
+                      </button>
+                    </div>
+</a> -->
+<div id="left">
+<ul class="nav btn-group">
+<li class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+ <a href="/">Inicio</a> 
+    <ul>
+        <li><a href="/VerPublicaciones/">Publicaciones</a></li>
+        <!-- <li> <a href="">mmmmmmm</a> </li> -->
+        <li> <a href="/Publicaciones/">Publicar</a> </li>
+        <li> <a href="/nuevoUser/">Usuario</a> </li>
+        <li> <a href="/admin/">Administrador</a> </li>
+        <li> <a href="/cerrar/">Salir</a> </li>
+    </ul>
+</li>
+</ul>
+</div>
+
+                <a href="/" class="brand-logo hide-on-med-and-down">Administracion</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse full">
+                    <i class="mdi-navigation-menu"></i></a>
+                <ul id="nav-mobile" class="side-nav fixed">
+                    <li class="logo">
+                        <a id="logo-container" href="/admin">
+                            <img class="responsive-img" src="{{STATIC_URL}}img/logo.png">
+                        </a>
+<form action="/buscar/" name="" id="fbuscar" method="post">{% csrf_token %}
+    <input id="id_texto" maxlength="50" name="texto" type="text" placeholder='Buscar Equipo' />
+</form>
+                    </li>
+                     <!-- <li class="active"><a href="/admin/" id="admin">Administracion</a></li>
+                   <li class="glyphicon .glyphicon-user" ><a href="/admin/">Usuarios</a></li> -->
+                    <div class="acordion">
+                        <li class="active">Campeonatos</li>
+                        <div>
+                              <li><a href="/Campeonatos/">Nuevo Campeonato</a></li>
+                            <li><a href="/VerCampeonatos/">Ver Campeonatos</a></li>
+                        </div>
+                        <li class="active">Programacion Partidos</li>
+                        <div>
+                              <li><a href="/FerchaPartido/">Nueva Fecha</a></li>
+                            <!-- <li><a href="/programar/">Inter-carreras</a></li> -->
+                            <li><a href="/nuevoRolPartidos/">Registrar Partidos</a></li>
+                        </div>
+                        <li class="active">Equipos</li>
+                        <div>
+                            <li><a href="/registroPuntuacion/">Registrar Puntuacion</a></li>
+                            <li><a href="/Equipos/">Ver Equipos</a></li>
+                            <li><a href="/registroEquipo/">Registrar Equipo</a></li>
+                        </div>
+                        <li class="active">Diciplinas</li>
+                        <div>
+                            <li><a href="javascript:ventanaSecundaria('/nuevadiciplina/')">Nueva Diciplina</a></li>
+                            <li><a href="/VerDiciplinas/">Ver Diciplina</a></li>
+                            <li><a href="">Reportes</a></li>
+                        </div>
+                        <li class="active">Carreras</li>
+                        <div>
+                            <li><a href="/nueCarrera/">Registrar Carrera</a></li>
+                            <!-- <li><a href="">Nueva Diciplina</a></li>
+                            <li><a href="/ListaCarrera/">Ver Carreras</a></li> -->
+                        </div>
+                        <li class="active">Informes</li>
+                        <div>
+                            <li><a href="/informe/">Rol Interno</a></li>
+                            <li><a href="/verIntercarreras/">Partidos Inter-Carreras</a></li>
+                            <li><a href="/verFechasProgramcion/">Ver fechas Programacion</a></li>
+                        </div>
+                 </div> 
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="resultados"> </div>
+{% block contenidos %}
+{% endblock %}
+<div id="resultados"></div>
+
+{% block js %}  {% endblock %}
+</main>
+<script type="text/javascript">
+    if (navigator.appVersion.indexOf("Win")!=-1) {
+        document.write('<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/robotofix.css">');
+    }
+
+    $(function() {
+        $('.dropdown-button').dropdown({hover: false});
+        $(".button-collapse").sideNav();
+        $('select').not('.disabled').not('.material-ignore').material_select();
+
+        $('[data-form-control="date"]').each(function() {
+            var input = $(this);
+            input.datetimepicker({format: input.data('date-format'), timepicker:false, mask:false});
+        });
+        $('[data-form-control="time"]').each(function() {
+            var input = $(this);
+            input.datetimepicker({format: input.data('date-format'), datepicker: false, timepicker:true, mask:false});
+        });
+        $('[data-form-control="datetime"]').each(function() {
+            var input = $(this);
+            input.datetimepicker({format: input.data('date-format'), datepicker: true, timepicker:true, mask:false});
+        });
+        
+          In chrome, there is no way to get to know is autofill
+          fills the password field until user is interacted. Assume
+          that it is
+        
+        if($('input[type=password]').length) {
+            function autofix() {
+                $('input[type=password]').addClass('active').addClass('valid');
+                $('input[type=password]').next('label').addClass('active').addClass('valid');
+                $('input[type=password]').prev('i').addClass('active');
+                userInteracted();
+            }
+
+            function userInteracted() {
+                $('body').off('input propertychange', 'input[type=text]', autofix);
+                $('body').off('input propertychange', 'input[type=email]', autofix);
+                $('body,html').unbind("scroll mousedown DOMMouseScroll mousewheel keyup", userInteracted);
+            }
+
+            $('body').on('input propertychange', 'input[type=text]', autofix);
+            $('body').on('input propertychange', 'input[type=email]', autofix);
+            $("body,html").bind("scroll mousedown DOMMouseScroll mousewheel keyup", userInteracted);
+        }
+    });
+</script>
+       <!-- <script src="{{STATIC_URL}}js/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="{{STATIC_URL}}js/dataTables.responsive.js" type="text/javascript"></script>
+        <script src="{{STATIC_URL}}js/dataTables.fixedHeader.js" type="text/javascript"></script>-->
+    </body>
+</html>

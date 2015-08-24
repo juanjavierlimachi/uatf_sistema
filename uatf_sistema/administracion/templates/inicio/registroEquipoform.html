@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block contenidos %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<div id='partidos'>
+	<p></p>
+	<form method='POST'>{% csrf_token %}
+		<p>Registrar Equipo</p>
+		<table>{{registroEquipo}}</table>
+		<input type='submit' value='Registrar'>
+	</form>
+</div>
+{% endblock %}

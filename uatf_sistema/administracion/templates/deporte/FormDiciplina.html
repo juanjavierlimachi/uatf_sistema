@@ -1,0 +1,11 @@
+<script type="text/javascript">
+	function cerrarVentana(){
+		//window.close();
+	}
+</script>
+<div id="diciplina">
+	<form method='POST'>{% csrf_token %}
+		<table>{{formulario}}</table>
+		<input type='submit' value='Registrar' onclick="cerrarVentana()">
+	</form>
+</div>

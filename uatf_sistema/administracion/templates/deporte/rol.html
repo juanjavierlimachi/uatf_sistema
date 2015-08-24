@@ -1,0 +1,16 @@
+
+{% extends 'deporte.html' %}
+{% block contends %}
+<link href="/static/css/rol.css" rel="stylesheet">
+<div id="rol">
+	<h4>Nuestros Campeonatos:{{carrera.Nombre_Carrera}}</h4>
+	<nav class="main">
+{% for i in diciplinasCarreras %}
+	<li><a href="/diCampeonato/{{i.id}}/">{{i.Nombre_campeonato}}</a> 
+
+	</li>
+{% endfor %}
+</nav>
+<!--<a href="/di/{{i.id}}/ca/{{carrera.id}}">-->
+</div>
+{% endblock %}

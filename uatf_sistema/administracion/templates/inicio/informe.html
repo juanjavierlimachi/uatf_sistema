@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}.:Informes:.{% endblock %}
+{% block js %}
+<script type="text/javascript">
+	$('select').on('change',inicio);
+
+	function inicio(){
+		var id = $(this).val();
+		 //aki vemos k el id se esta inprimiendo
+		$.ajax({
+			data:{'id':id},
+			url:'/porferchas/',
+			type: 'get',
+			success: function(data){
+			
+				var html=""
+				for(var i = 0; i<data.length; i++){
+					html += '<table><tr><td>'+data[i].fields.hora+'</td><td>'+data[i].fields.EquipoA+'</td><td>*vs*</td><td>'+data[i].fields.EquipoB+'</td><td>'+data[i].fields.diciplina+'</td></tr></table>';
+				}
+				$('#resultados').html(html);
+			}
+		});
+	}
+</script>
+{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/deinforme.css">
+<div id="informe">
+<table border='1' id='partidos'>
+	<tr><td >HORAS</td><td>EQUIPO A</td><td></td><td>EQUIPO  B</td> <td>Campeonato</td><td>Cat.</td><td>Nro.fecha</td>
+		<td>Diciplina</td><td></td><td></td></tr>
+{% for i in partidos %}
+	{% for c in campeonato %}
+	{% if c.id == i.campeonato_id and c.Carrera_id != Null %}
+<tr> <td>{{i.hora}} </td> <td>{{i.EquipoA}} </td> <td>*vs*</td> <td>{{i.EquipoB}}</td><td>{{i.campeonato}}</td><td>{{i.Categoria}}</td> <td>{{i.Fecha_Partido_id}}</td> <td>{{i.diciplina}}</td>
+	<td><a href="/deletePartido/{{i.id}}/">Eliminar</a>|<a href="/updatePartido/{{i.id}}/">Editar</a></td></tr>
+	{% endif %}
+	{% endfor %}
+{% endfor %}
+</table>
+</div>
+<hr>
+<div>
+	<form id='fr'>
+		<!-- <select name='carrera'> <option>.....</option>
+			{% for item in carreras %}
+				<option value='{{item.id}}'>{{item.Nombre_Carrera}}</option>
+			{% endfor %}
+		</select>
+		<select name='carrera'> <option>.....</option>
+			{% for diciplina in diciplinas %}
+				<option value='{{diciplina.id}}'>{{diciplina.Nombre_diciplina}}</option>
+			{% endfor %}
+		</select> -->
+	<select name='carrera' id='fechas'> <option>Ver Partidos por fecha</option>
+			{% for fecha in fechas %}
+				<option value='{{fecha.id}}'>{{fecha.fecha}} / {{fecha.lugar}} /Nro:{{fecha.id}}</option>
+			{% endfor %}
+		</select>
+
+	</form>
+</div><br>
+{% endblock %}

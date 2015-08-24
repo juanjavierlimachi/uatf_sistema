@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+	{% block title %}.:Campeonato:.{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<style type="text/css">
+	#id_Categoria{
+		width: 60%;
+	}
+	/*#partidos table tr td ul li{
+		width: 30px;float: left;margin: auto;
+		list-style: none;margin-left: 35px;
+	}*/
+	#partidos {
+		margin-top: 10px;
+
+	}
+#partidos #id_Nombre_campeonato{
+	width: 100%;
+}
+#partidos p .helptext{
+	width: 100%;float: left;
+}
+#partidos p label{
+	width: 200px;display: inline-block;
+	float: left;margin-left: 0px;
+	text-align: left;
+}
+</style>
+<div id="partidos">
+	<p>Editar Campeonato</p>
+<form method='POST'>{% csrf_token %}
+{{forms.as_p}}
+<input type='submit' value='Registrar' id='btn'>
+</form>
+</div>
+{% endblock %}

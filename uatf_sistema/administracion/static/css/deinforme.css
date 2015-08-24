@@ -1,0 +1,33 @@
+#leftt{
+	display: none;
+}
+#resultados table{
+	width: 70%;margin: auto;
+}
+#resultados table td{
+	width: 20%;margin: auto;
+}
+#resultados table tr:hover{
+	background: #26a69a;
+}
+#fr{
+	width: 25%;height: auto; margin: auto;
+}
+#fr #fechas {
+}
+#informe{width: 100%;
+	margin-top: 10px;
+}
+#informe #partidos{
+	width: 100%;margin: auto;border-collapse: collapse;border: 1px;text-align: center;
+}
+#partidos tr td{
+	width: 20px;
+	border: 1px solid block;
+}
+#partidos tr:hover{
+	background:orange;
+}
+#partidos{
+	background: white;
+}

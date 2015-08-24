@@ -1,0 +1,40 @@
+#ppp{
+		width:100%;height:auto;margin: auto;margin-bottom: 10px;margin-top: 10px;
+	}
+#ppp p{
+	text-align: center;
+}
+#ppp table{
+	width: 75%;
+	margin: auto;
+}
+#ppp table tr:hover{
+		background: orange;
+	}
+
+	#ppp table tr:nth-child(odd) {background:LightSkyBlue;}
+	#ppp table tr:hover{
+		background: #ADD8E6;
+}
+#ppp li a{width: 15px;float: right;
+	text-align: right;margin-right: 40px;
+}
+	.carreras{
+		width: 100%;height: auto;margin: auto;float: left;margin-left: 5px;
+		padding: 3px;background: #465866;color: white;
+		list-style: none;text-align: center;margin-top: 5px;border-radius: 3px;
+
+	}
+	.inter{
+		width: 100%;height: auto;margin: auto;float: left;margin-left: 5px;
+		padding: 3px;background: black;color: white;
+		list-style: none;text-align: center;margin-top: 10px;border-radius: 3px;
+
+	}
+	#ppp li:hover{
+		background: #3498db;
+		/*text-shadow: 0.5em 0.5em 0.25em #333;*/
+	}
+	.col-lg-4{
+	display: none;
+}

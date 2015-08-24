@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}.:Fechas Programacion:.{% endblock %}
+{% block contenidos %}
+<script type="text/javascript">
+function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=500,height=300,scrollbars=NO top=150 left=450");
+            }
+</script>
+<link rel="stylesheet" type="text/css" href="/static/css/deinforme.css">
+<style type="text/css">
+#leftt{
+	display: none;
+}
+#diciplinas{
+
+	background: white;
+}
+	#diciplinas table{
+		width: 100%
+
+	}
+</style>
+<div id="informe">
+	<p>Lista de Campeonatos</p>
+	<p>Total Campeonatos registrados:{{con}}</p>
+	<table border=1 id='partidos'>
+		<tr><td>Nombre Campeonato</td><td>Fecha Inicio</td><td>Fecha Conclucion</td>
+		<td>Carrera</td></tr>
+{% for f in cam %}
+<tr>
+	<td><a title='Ver Equipos' href="javascript:ventanaSecundaria('/Equipos-del-Campeonato/{{f.id}}/')">{{f.Nombre_campeonato}}</a></td>
+	<td>{{f.Fecha_inicio}}</td>
+	<td>{{f.Fecha_conclucion}}</td>
+	<td>{{f.Carrera}}</td>
+	<td><a href="/EliminarCampeonatos/{{f.id}}/">Eliminar   |  <a href="/editCampeonatos/{{f.id}}/">Editar</a> </a></td>
+	
+	</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

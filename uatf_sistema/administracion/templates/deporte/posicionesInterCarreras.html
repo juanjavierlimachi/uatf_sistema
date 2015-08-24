@@ -1,0 +1,40 @@
+<!--<link rel="stylesheet" type="text/css" href="/static/css/position.css">-->
+<style type="text/css">
+	#ppp table{
+		font-size: 16px;
+		border-collapse: collapse;margin: 0px;padding: 0px;
+	}
+
+	#ppp table{
+		width: 100%;height: auto;margin: auto;
+		font-size: 15px;
+	}
+	#ppp table tr:hover{
+		background: orange;
+	}
+
+
+	#ppp table tr:nth-child(odd) {background:LightSkyBlue;}
+	#ppp table tr:hover{
+		background: #ADD8E6;
+	}
+	</style>
+<div id="ppp">
+	<p><img src="/static/img/Imagen-animada-Futbol-11.gif"> Tabla de Posiciones Inter-Carreras</p>
+<table border='1'>
+		<!-- {% for item in punto %}
+		<tr><td>{{item.keys}}</td>
+				 {% for i in item.values %}
+					<td>{{i}}</td>
+				{% endfor %}
+		</tr>
+		{% endfor %} -->
+		{% for i in punto %}
+		<tr>
+			{% for a,i in i.items %}
+					<td>{{a}}</td> <td>{{i}}</td>
+			{% endfor %}
+		{% endfor %}
+		</table>
+</div>
+

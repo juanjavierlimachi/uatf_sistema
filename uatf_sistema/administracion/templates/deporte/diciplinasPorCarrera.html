@@ -1,0 +1,23 @@
+
+<style type="text/css">
+.col-lg-4{
+	display: none;
+}
+#diciplinas ul{
+	width: 25%;height: auto;
+	border: 1px solid black;
+}
+</style>
+<div id="diciplinas">
+	<h4>Carreras que oarticipa en:</h4>
+	{% for diciplina in diciplinas %}
+		<ul>
+		<li>{{diciplina.Nombre_diciplina}}</li>
+		{% for carrera in diciplina.carrera.all %}
+			<p>{{carrera.Nombre_Carrera}}
+		<a href="/diciplina/{{diciplina.id}}/carrera/{{carrera.id}}/">Ver Rol</a>
+			</p>
+		{% endfor %}
+		</ul>
+	{% endfor %}
+</div>

@@ -1,0 +1,33 @@
+#partidos{
+	margin: 20px;
+}
+#partidos form p{
+	height: 35px;
+}
+	#id_Puntaje{
+		width: 80%;margin-left: 125px;margin-top: -30px;
+	}
+	
+	#id_Puntaje li{
+		width: 50px;float: left;margin-left: 20px;list-style: none;
+	}
+	#partidos form input{
+		display: inline-block;
+
+	}
+	#partidos form label{
+		display: inline-block;
+		width: 150px;
+		margin-top: 15px;
+	}
+	#partidos form .helptext{
+		color: #81C784;
+		margin-right: 0px;
+	}
+	#id_Partidos_ganados{
+		float: right;margin-top: 0px;
+	}
+	#partidos #id_Partidos_ganados li{
+		width: 80px;float: left;margin-left: 10px;list-style: none;
+	} 
+	#id_Equipo{margin-left: 20px;}

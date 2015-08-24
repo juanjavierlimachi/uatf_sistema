@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}.:Diciplinas:.{% endblock %} 
+{% block js %}
+<script type="text/javascript">
+	$('select').on('change',inicio);
+
+	function inicio(){
+		var id = $(this).val();
+		console.log(id); //aki vemos k el id se esta inprimiendo
+		$.ajax({
+			data:{'id':id},
+			url:'/busqueda_ajax/',
+			type: 'get',
+			success: function(data){
+				console.log(data);
+				var html=""
+				for(var i = 0; i<data.length; i++){
+					html += '<li>'+(i+1)+' .- '+data[i].fields.Nombre_diciplina+'</li>';
+				}
+				$('#resultados').html(html);
+			}
+		});
+	}
+</script>
+{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/diciplinas.css">
+<div id="diciplinas">
+<h5>Lista de Diciplinas registradas en la gestion {% now "Y" %} </h5>
+{% for i in diciplinas %}
+<ul> 
+	<li> <a href="javascript:ventanaSecundaria('/Asignar/{{i.id}}')" title='Ver detalles'>
+		{{i.Nombre_diciplina}}</a></li>
+	<li><a href="/eliminarDiciplina/{{i.id}}" title='Eliminar'>Eliminar</a>
+</ul>
+{% endfor %}
+</div>
+<br><br>
+<p class='cont'>Total Diciplinas:{{cont}}</p><hr>
+<div id='select'>
+	<!-- <p>Ver diciplinas por carreas:</p> -->
+<select id='care' class='initialized'><option>seleccione un campeonato</option>
+		{% for carrera in campeonato %}
+			<option value="{{carrera.id}}">{{carrera.Nombre_campeonato}}</option>
+		{% endfor %}
+</select>	
+</div>
+{% endblock %}

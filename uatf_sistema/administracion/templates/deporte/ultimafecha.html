@@ -1,0 +1,23 @@
+{% extends 'deporte.html' %}
+{% block contends %}   
+<link href="/static/css/detable.css" rel="stylesheet">
+<div id="ultimos">
+	<p>ROL DE PARTIDOS CAMPEONATO INTERNO  :  {{nombre_carrera|upper}}
+			GESTION {% now "Y" %}</p>
+	<div id="info">
+		<li class='fecha'>FECHA: {{ultimafecha.fecha}}</li>
+		<ul class='dt'> <li>LUGAR: {{ultimafecha.lugar}}</li><li>Nro: {{ultimafecha.id}}</li> 
+		<li><img src="/static/img/Imagen-animada-Futbol-70.gif"></li></ul>
+	</div>
+		<table>
+			<tr><td>HORAS</td><td>EQUIPO</td><td>*VS*</td><td>EQUIPO</td><td>Categoria</td></tr>
+			{% for i in partidos %}
+			<tr><td>{{i.hora}} </td> <td><img src="/static/img/uuu.png">{{i.EquipoA}}</td><td>*vs*</td><td><img src="/static/img/ooo.png">{{i.EquipoB}}</td><td>{{i.Categoria}}</td>
+			{% endfor %}
+		</table><br>
+</div>
+{% endblock %}
+
+<!--idcarrera:{{i.Nombre_Carrera}}
+	edfecha:{{i.idFechaPartido_id}}
+	iddiciplina:{{i.Nombre_diciplina}}-->

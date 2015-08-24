@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}.:Perfil Usuario:.{% endblock %}
+{% block contenidos %}
+<style type="text/css">
+    #leftt{
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+            function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=300,height=300,scrollbars=NO")
+            }
+        </script>    
+<link rel="stylesheet" type="text/css" href="/static/css/formularios.css">
+<!-- <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css"> -->
+    
+<style type="text/css">
+    #leftt{
+        display: none;
+    }
+    .cardd ul{width: 80%;
+        margin: auto
+    }
+    .cardd h5{
+        text-align: center;
+    }
+    .cardd .perfil{
+        width: 90%;height: 100px; margin: auto;
+    }
+    .cardd .perfil li{
+        width: 45%;float: left;margin-left: 15px;list-style: none;margin: auto;
+    }
+    .cardd a{
+        margin: auto;margin-left: 50px
+    }
+   
+</style>
+  <body class="valign-wrapper2">
+
+<div class="cardd">
+     <h5>Datos de Perfil</h5>
+    {% for info in dato %}
+        {% for user in usuario %}
+            {% if info.usuario_id == user.id %}
+                    <ul class='perfil'><li><label>Nombre de Usuario:</label>{{user.username}}</li>
+                    <li><label>Primer Nombre:</label>{{user.first_name}}</li>
+                    <li><label>Apellido:</label>{{user.last_name}}</li>
+                   <li> <label>Numero de Ci:</label>{{info.ci}}</li></ul>
+                    <!--  <button class="waves-effect waves-light btn" type="submit">Guardar</button> -->
+                
+             {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <a class="waves-effect waves-light btn" href="javascript:ventanaSecundaria('/editar_perfil/')">Editar Datos</a>
+    <!-- <a class="waves-effect waves-light btn" href="/editarcon/">Editar Password</a> -->
+</div>
+{% endblock %}

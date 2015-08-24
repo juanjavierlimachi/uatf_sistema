@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}.:Nuevo:.{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<script type="text/javascript">
+    function verificar(){
+        var user=$('#id_username').val();
+        var pass=$('#id_password').val();
+        var repass=$('#id_password_confirm').val();
+        var nombre=$('#id_first_name').val();
+        var ape=$('#id_last_name').val();
+        var ci=$('#id_email').val();
+        if (user==''||pass==''||repass==''||nombre==''||ape==''||ci==''){
+            alert('Error no deve dejar casillas en blanco');
+            return false;
+        }
+    }
+</script>
+        <div id="partidos">
+            <p>Nuevo Usuario</p>
+            <form method="POST" action="" onsubmit='return verificar()'> {% csrf_token %}
+                {{form.as_p}}
+    <button class="waves-effect waves-light btn" type="submit"
+    onsubmit='verificar()'>Guardar</button>
+            </form>
+         </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block contenidos %}
+<style type="text/css">
+#leftt{
+	display: none;
+}
+#lista{
+	margin-top: 15px;
+}
+#lista li{
+	width: 50%;
+	float: left;
+	margin-left: 100px;
+	margin-top: 15px,
+}
+#registro{
+	width: 30%;margin: auto;
+	margin-top: 150px;
+	margin: 1px solid black;
+	background-color: white;
+}
+
+.row{
+	/*border: 1px solid #045;*/
+}
+</style>
+<div id='lista'>
+{% for item in carr %}
+	<li><a href="/Eliminar/{{item.id}}/">Eliminar</a> <a href="/detalles/{{item.id}}/">{{item.Nombre_Carrera}}</a></li>
+{% endfor %}
+</div><br>
+<div id="registro" class="card-content">
+	<form method='POST'>{% csrf_token %}
+{{formulario}}
+<input type='submit' value='Registrar'>
+ </form>
+</div>
+{% endblock %}
+

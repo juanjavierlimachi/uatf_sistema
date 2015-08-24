@@ -1,0 +1,59 @@
+#diciplinas{
+	width: auto;height: auto;margin: auto;padding: 10px;margin-top: 10px;margin-bottom: 50px;
+}
+	#diciplinas h5{
+		width: 70%;height: 35px;text-align: center;margin: auto;
+	}
+	#diciplinas ul{
+		width: 15%;height: auto;margin: auto;float: left; text-align: center;
+		margin-top: 10px; background:#eee;margin-left: 10px;background: #81C784;border-radius: 3px;
+	}
+	#diciplinas li a{
+		color: white;
+	}
+	#diciplinas ul li{
+		list-style: none;
+	}
+	#diciplinas ul:hover{
+		background: #26a69a;
+	}
+	#diciplinas ul li a:hover{
+		color: #FF8C00;
+	}
+	#diciplinas p{
+		height: 100%;margin-bottom: 0px;
+	}
+	#resultado{
+		width: auto;height: auto;float: left;margin-left: 5px;padding: 10px;
+		
+	}
+	#resultado li{
+		width: 180px;height: 20px;float: left;text-align: center;list-style: none;
+		margin-top: 10px;
+	}
+	#select{width: 100%;height: 40px;margin: auto;margin-top: 10px;
+		
+	}
+	#select p{
+		width: 20%;margin-left: 25px;float: left;
+	}
+	#select #care{
+		height: 35px;width: 40%;float: right;margin-right: 60px;
+		display: block;
+	}
+	.initialized{
+		display: block;
+	}
+	#leftt{
+		display: none;
+	}
+	.cont{
+		margin-left: 20px;
+	}
+	#resultados li{
+		list-style: none;width: 300px;margin-left: 20px;
+	}
+	#resultados li:hover{
+		color: #26a69a;
+		cursor: pointer;
+	}

@@ -1,0 +1,44 @@
+<style type="text/css">
+#divContenido{
+	width: auto;height: auto;margin: auto;background: #87CEFA;
+	border-radius: 5px;
+}
+#divContenido p{
+	text-align: center;
+}
+#divContenido h4{text-align: center;}
+#divContenido li{list-style: none;}
+#divContenido table{
+	width: 100%;margin: auto;text-align: center;background: white;border-color: grey;
+	border-collapse: collapse;
+}
+
+#divContenido table tr:hover{
+	background:LightSalmon;
+}
+#divContenido table tr:nth-child(odd) {}
+</style>
+	<div id="divContenido">
+		<!-- <p>ROL DE PARTIDOS CAMPEONATOS INTER-CARRERA GESTION {% now "Y" %}</p>
+		<p>FECHA:{{ultimafecha.fecha}}</p>
+<p>LUGAR:{{ultimafecha.lugar}}</p><p>Nro:{{ultimafecha.id}}</p>
+			<table border='1' align='center'>
+			<tr><td>HORAS</td><td>EQUIPO</td><td>*VS*</td><td>EQUIPO</td>
+				<td>Categoria</td><td>Diciplina</td></tr>
+				{% for partido in partidos %}
+				<tr>
+					<td>{{partido.hora}}</td>
+					<td>{{partido.EquipoA}}</td><td>*vs*</td>
+					<td>{{partido.EquipoB}}</td>
+					<td>{{partido.Categoria}}</td>
+					<td>{{partido.diciplina}}</td>
+					
+				</tr>
+				{% endfor %}
+			</table> -->
+			<h4>{{Nombre_campeonato.Nombre_campeonato}}</h4>
+			<p>Lista de Diciplinas en la que se Participa </p>
+			{% for i in partidos %}
+				<li><a href="/rolDeDiciplina/{{i.id}}/campeonato/{{Nombre_campeonato.id}}">{{i.Nombre_diciplina}}</a></li>
+			{% endfor %}
+	</div>

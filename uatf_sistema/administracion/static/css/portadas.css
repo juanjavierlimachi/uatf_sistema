@@ -1,0 +1,30 @@
+.col-lg-4{
+	display: none;
+}
+#ppp{
+	position:relative;
+}
+.carousel-inner{
+	display: none;
+}
+#publicaiones{margin-left: -50px;
+	width: 100%;height: auto; background: orange;margin: 0px;padding: 0px;
+	/*border: 1px solid black;*/
+}
+#publicaiones ul li{
+	list-style: none;text-align: center;width: auto;color: white
+}
+#publicaiones ul{
+	width: auto;margin: auto;float: left;
+	margin: 0px; padding: 0px;border-radius: 10px;
+	margin-left: 15px;margin-top: 10px;background: #465866;
+}
+#publicaiones ul li img{
+	width:450px;height: 250px;border-radius: 8px;margin-top: 8px;
+}
+#publicaiones ul:hover{
+	background: #3498db;
+}
+#contend{
+	margin-top: 100px;
+}

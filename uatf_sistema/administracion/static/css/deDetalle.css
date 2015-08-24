@@ -1,0 +1,14 @@
+#leftt{
+	display: none;
+}
+#registro{
+	width: 80%;margin: auto;
+	margin-top: 15px;background: white;
+}
+#registro p{
+	text-align: center;color: black;
+}
+#registro li{
+	width: 90%;margin: auto;
+	list-style: none;
+}

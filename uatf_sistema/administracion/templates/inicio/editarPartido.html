@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+	{% block title %}.:Editar:.{% endblock %}
+{% block contenidos %}
+<link rel="stylesheet" type="text/css" href="/static/css/partidosForm.css">
+<style type="text/css">
+	#id_Categoria{
+		width: 60%;
+	}
+	#partidos table tr td ul li{
+		width: 30px;float: left;margin: auto;
+		list-style: none;margin-left: 35px;
+	}
+</style>
+<div id="partidos">
+	<p>Editar Partido</p>
+<form method='POST'>{% csrf_token %}
+<table>{{forms}} </table><br>
+<input type='submit' value='Registrar' id='btn'>
+</form>
+</div>
+{% endblock %}

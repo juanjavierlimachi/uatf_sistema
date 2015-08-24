@@ -1,0 +1,16 @@
+<link href="/static/css/detable.css" rel="stylesheet">
+<div id="ultimos">
+	<p>ROL DE PARTIDOS CAMPEONATO INTER-CARRERAS
+		<br>GESTION {% now "Y" %}</p>
+	<div id="info">
+		<li class='fecha'>FECHA:{{ultimafecha.fecha}}</li>
+		<ul class='dt'> <li>LUGAR:{{ultimafecha.lugar}}</li><li>Nro:{{ultimafecha.id}}</li> 
+		<li><img src="/static/img/Imagen-animada-Futbol-70.gif"></li></ul>
+	</div>
+		<table>
+			<tr><td>HORAS</td><td>EQUIPO</td><td>*VS*</td><td>EQUIPO</td><td>Categoria</td></tr>
+			{% for i in partidos %}
+			<tr><td>{{i.hora}} </td> <td>{{i.EquipoA}} </td><td>*vs*</td><td>{{i.EquipoB}}</td><td>{{i.Categoria}}</td>
+			{% endfor %}
+		</table><p><a href="javascript:window.history.back();">Atras</a></p>
+</div>

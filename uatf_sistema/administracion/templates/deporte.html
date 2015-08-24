@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://www.uefa.com/imgml/favicon/comp/ucl.ico" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>.:U.A.T.F. Deportes:.</title>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.6.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+    <link href="/static/css/carousel.css" rel="stylesheet">
+    <script type="text/javascript">
+        function envio(){
+          $.ajax({
+            type:'GET',
+            url:'/intercarreras/',
+            data:{},
+            success:function(resp){
+              //conlose.log(resp);
+                $('#datos').html(resp);
+                $('#datos div').slideDown(1000); 
+            }
+          });
+        }
+        function diciplinasVer(){
+          $.ajax({
+            type:'GET',
+            url:'/diciplinas/',
+            success:function(data){
+              $('#datos').slideDown(1000).html(data);
+            }
+          });
+        }
+        function EquiposVer(){
+          $.ajax({
+            type:'GET',
+            url:'/todoEquipos/',
+            success:function(resp){
+              console.log(resp);
+              $('#datos').html(resp);
+            }
+          });
+        }
+        function Publicaciones(){
+          $.ajax({
+            type:'GET',
+            url:'/publicacionesCarrera/',
+            success:function(response){
+              //console.log(response);
+              $('#datos').html(response);
+            }
+          });
+        }
+    </script>
+ </head>
+<!-- NAVBAR================================================= -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> 
+              <a id='imgs'> <img src="/static/img/escudo.jpg">Unidad de Deportes</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/deporte/">Inicio</a></li>
+                <li><a href="#modal2">Ayuda</a></li>
+                <li><a href="#" onclick='Publicaciones()'>Publicaciones</a></li>
+                <li><a href="#" onclick='diciplinasVer()'>Deportes</a></li>
+                <li><a href="#" onclick='EquiposVer()'>Campeonatos</a></li>
+                <!-- <li><a href="#contact">Opciones</a></li> 
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Diciplinas<span class="caret"></span></a>
+                   <ul class="dropdown-menu" role="menu">
+                    {% for diciplina in diciplinas %}
+                    <li><a href="/diciplinas/{{diciplina.id}}/">{{diciplina.Nombre_diciplina}}</a></li>
+                    {% endfor %}
+                  </ul> 
+                </li>-->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Programas Deportivos<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Uso semanal de Coliseo</a></li>
+                    <li><a href="#" onclick='envio()'>Canpeonato Inter-carreras</a></li>
+                  </ul>
+                </li>
+                
+                <li>
+        <!--action="/buscar/"-->
+  <form action="#" name="" id="fbuscar" method="post"> {% csrf_token %}
+     <input id="id_texto" class='idtet' maxlength="50" name="texto" type="text" placeholder='Busque su carrera' onfocus="foco(this)" onblur="sinfoco(this)"/>   
+  </form><div class="resultados">
+                   </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel ================================================== -->
+    <div id="contend">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="/static/img/udd3.jpg" alt="First slide">
+          
+        </div>
+        <div class="item">
+          <img class="second-slide" src="/static/img/bueno.png" alt="Second slide">
+          <!-- <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div> -->
+        </div>
+        <div class="item">
+          <img class="third-slide" src="/static/img/udd1.jpg" alt="Third slide">
+          <!-- <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+ -->        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing" id='circle'>
+      {% block contends %} {% endblock %}
+    {% block script %}    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/css/micion.css">
+<div class="center">
+  <div id="modal2" class="modalmask">
+    <div class="modalbox rotate">
+      <a href="#close" title="Close" class="close">X</a>
+      <h4>Bienvenido...!!!</h4>
+      <p>Aqui puedes consultar todos los partidos y tabla de posisiones de las diferentes Carreras e Inter-carreras programadas en una fecha.
+      <h4>1ro.- Carreras:</h4>Busque su respectiva carreas en el cuadro de busqueda en el lado derecho del navegador.  y eliga el campeonato en la que participa y posterior mente el equipo.
+                                            
+      <h4> 2do.- Intercarreras:</h4> haga clink en 'Programas deportivos' que esta situado en la parte superior de la pantalla, luesgo click en 'Canpeonato Inter-carreras' y elija el compeonato en la que participa y posterior mente el equipo. </p>
+    </div>
+  </div>
+</div>
+    <div id="datos"> </div>
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/equipo.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Mision</h2>
+            <p style="text-align: justify">Contribuir el desarrollo integral, de la salud física y salud mental de los miembros de la comunidad Universitaria, a través de la promoción de la actividad deportiva de alta competencia y recreativa.</p>
+          
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/trofe.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Vision</h2>
+                  <p style="text-align: justify">Incorporar la cultura deportiva en todos sus niveles, para cada uno de los miembros de la comunidad Universitaria donde puedan desarrollarse íntegramente como persona y donde la práctica deportiva sea uno de los objetivos de mayor importancia para la Universidad.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/obje.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Objetivo</h2>
+                  <p style="text-align: justify">El objetivo del presente manual es documentar la estructura Organizativa de la Unidad de Cultura y Deportes, así como los objetivos y funciones de cada uno de ellos.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/static/js/holder.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><!-- <a href="/http://www.uatf.edu.bo/">U.A.T.F</a> -->
+          <a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://uatf.edu.com.bo','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir en Facebook</a>
+        </p>
+        <p>&copy; U.A.T.F Extencion Univercitaria</p>
+      </footer>
+  </body>
+</html>

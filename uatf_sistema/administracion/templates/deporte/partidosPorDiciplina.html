@@ -1,0 +1,35 @@
+
+<style type="text/css">
+.col-lg-4{
+	display: none;
+}
+</style>
+<div id="rol">
+{% for diciplina in diciplinas %}
+	{% for partido in partidos %}
+		{% for dato in datos %}	
+		<!-- <h2>{{carrera.id}}</h2> imprime el mismo id de datos	
+		{% if dato.id == carrera.id %} {% endif %}-->
+			{% for fechapartido in fechapartidos %}			
+				{% for carrera in carreras %}
+{% if partido.Carrera_id == carrera.id and partido.Fecha_Partido_id == fechapartido.id and partido.diciplina_id == diciplina.id and carrera.id == fechapartido.carrera_id %}
+			{% if dato.carrera_id == carrera.id %}
+			<h5>{{dato.carrera_id}}</h5>
+						<li>{{partido.hora}}
+							{{partido.EquipoA}} *VS*
+							{{partido.EquipoB}}
+							{{fechapartido.lugar}}
+							{{fechapartido.fecha}}</li><br>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+</div>
+{% for dato in datos %}
+{{dato.id}}------{{dato.lugar}}***{{dato.carrera_id}}
+{% endfor %}
+
+<!--and partido.idCArrera_id == dato.id == -->

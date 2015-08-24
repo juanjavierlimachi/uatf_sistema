@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="/static/css/position.css">
+<link href="/static/css/deinter.css" rel="stylesheet">
+<script type="text/javascript">
+	function ventanaSecundaria(URL){
+                window.open(URL,"Editar","width=600,height=400,scrollbars=NO top=150 left=400");
+            }
+</script>
+<div id="ppp">
+	<p>Nomina de Campeonados Registrados</p>
+	{% for i in todos %}
+		{% if i.Carrera != Null %}
+			<li class='carreras'>Carrera: {{i.Carrera}}.     {{i.Nombre_campeonato}}
+				Fecha Inicio: {{i.Fecha_inicio}}
+				Fecha Conclucion: {{i.Fecha_conclucion}}      |<a href="javascript:ventanaSecundaria('/Equipos-del-Campeonato/{{i.id}}/')">Equipos</a></li>	
+		{% else %}
+		<li class='inter'>{{i.Nombre_campeonato}}
+				Fecha Inicio: {{i.Fecha_inicio}}
+				Fecha Conclucion: {{i.Fecha_conclucion}}    |<a href="javascript:ventanaSecundaria('/Equipos-del-Campeonato/{{i.id}}/')">Equipos</a></li>
+		{% endif %}
+	{% endfor %}
+</div>

@@ -1,0 +1,26 @@
+<style type="text/css">
+#puntos{
+	width: auto;height: auto;margin: auto;
+}
+#puntos p{
+	text-align: center;
+}
+#puntos table{
+	border: 1px;
+	text-align: center;
+	border-collapse: collapse;
+}
+</style>
+<div id="puntos">
+	<table border='1'><tr><td>Puntos</td>
+	</tr>
+	<p>Puntos Obtenidos por el Equipo:  {{et.Nombre_equipo}}</p>
+{% for p in punto %}
+	<tr> <td>{{p.Puntaje}}</td><td><a href="/deletePunto/{{p.id}}/" onclick='cerrar()'>Eliminar</a></td>
+		<td><a href="/edirPunto/{{p.id}}/">Editar</a></td>
+{% endfor %}
+<td>PJ:{{jugados}}</td><td>PG{{ganados}}</td><td>PE:{{enpatedos}}</td><td>PP:{{perdidos}}</td>
+<td>GF:{{anotacion}}</td><td>GC:{{rec}}</td><td>DG:{{DG}}</td>
+<td>Total Puntos:{{cont}}</td></tr>
+</table> 
+</div>

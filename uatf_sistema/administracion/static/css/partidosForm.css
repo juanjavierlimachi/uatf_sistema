@@ -1,0 +1,43 @@
+#leftt{
+	display: none;
+}
+	#partidos{
+		width: auto;height: auto;margin: auto;background: #eee;
+	}
+	#partidos p{
+		text-align: center;color: black;
+	}
+	#partidos form {
+		width: 40%;height: 100%;margin: auto;box-shadow: 1px 3px 3px 2px;
+		background: #FFF;padding: 15px;border-radius: 5px;
+	}
+	#partidos form label{
+		color: black;width: 150px;display: inline-block;margin-left: 10px; 
+	}
+	#partidos form table input {
+		width: 60%;height: auto;margin: auto;margin-top: 10px;
+	}#partidos form table select {
+		width: 60%;height: auto;margin: auto;margin-top: 10px;
+	}
+	#partidos #id_Categiria {
+		width: 60%;float: left;list-style: none;
+	}
+	#id_Categiria{
+		width: 100%;float: left;margin-left: 150px;position: relative;
+	}
+	#id_Categiria li{
+		width: 50px;height: 35px;float: left;margin-left: 10px;list-style: none;
+	}
+	#id_Inter_carrera{
+		width: 80%;float: left;margin-left: 150px;position: relative;
+	}
+	#id_Inter_carrera li{
+		width: 140px;height: 35px;float: left;margin-left: 0px;list-style: none;
+	}
+	#btn{
+		 width: 150px;height: 25px;
+		}
+.helptext{
+	display: none;
+}
+	

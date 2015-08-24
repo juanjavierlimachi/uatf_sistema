@@ -1,0 +1,60 @@
+.col-lg-4{
+	display: none; 
+}
+#ultimos{margin: 0px;padding: 0px;
+		width: 100%;
+		height: auto;
+		/*border: 1px solid black;*/
+		margin: auto;
+		background: #465866;
+		margin-top: 10px;
+		border-radius: 10px;
+	}
+	#ultimos p{
+		width: auto;height: auto; margin: auto;text-align: center;
+		/*text-decoration: underline;*/
+		color: white;
+	}
+	#info{
+		width: 80%;height: auto;margin: 10px;margin: auto;/*border: 1px solid black;*/
+		background:transparent;
+		
+	}
+	#info li{
+		color: white;
+	}
+	#ultimos .fecha{
+		width: auto;
+		float: left;
+		list-style: none;
+	}
+	#ultimos .dt{
+		width: auto;
+		float: left;
+	}
+	#ultimos .dt li{
+		float: left;
+		width:auto;
+		height: 20px;
+		margin-left: 10px;list-style: none;
+	}
+	#ultimos table{
+		width: 98%;height: auto;margin: auto;
+		text-align: center; margin-top: 10px;
+		background: AliceBlue;
+		border-radius: 3px;
+		border-collapse: collapse;
+		background-color: rgb(0,0,#fff); opacity: 0.9;
+		border-radius: 3px;
+	}
+	#ultimos table tr:nth-child(odd) {background:LightSkyBlue;}
+	#ultimos table tr:hover{
+		background: DeepSkyBlue;
+		color: white;
+	}
+	img{
+		width: 70px;height: 30px;margin: auto;
+	}
+	#ultimos table img{
+		width: 22px;height: 20px;
+	}

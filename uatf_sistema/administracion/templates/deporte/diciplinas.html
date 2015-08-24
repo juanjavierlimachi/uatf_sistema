@@ -1,0 +1,16 @@
+
+<link href="/static/css/rol.css" rel="stylesheet">
+ <style type="text/css">
+.col-lg-4{
+	display: none;
+}
+
+ </style>
+<div id="rol">
+	<h4>DICIPLINAS DEPORTIVAS U.A.T.F</h4>
+	<nav class="main">
+	{% for diciplina in diciplinas.distinct %}
+			<li> <a href="/detalle/{{diciplina.id}}/">{{diciplina.Nombre_diciplina}}</a> </li>
+	{% endfor %}
+	</nav>
+</div>
